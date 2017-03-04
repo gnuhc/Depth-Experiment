@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+    <head>
+		<meta charset="UTF-8" ></meta>
+        <title>Testing JS Pysche</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+		<script src='js/responsivevoice.min.js'></script>
+		<script src="js/jspsych-5.0.3/jspsych.js"></script>
+		<script src="js/jspsych-5.0.3/plugins/jspsych-html.js"></script>
+		<script src="js/jspsych-5.0.3/plugins/jspsych-call-function.js"></script>
+		<script src="js/jspsych-5.0.3/plugins/jspsych-single-stim.js"></script>
+		<script src="js/custom.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="css/jspsych-5.0.3/jspsych.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<script>
+
+		/***
+		* @param : exp = image number
+				   trial = question number
+				   resp =  usr selected answer. EMPTY if not required
+				   time =  elapsed time
+		***/
+		function save_exp(exp, trial, resp, time){
+			$.ajax({
+				type:'post',
+				url:'save_exp.php',
+
+				cache:'false',
+				data:{
+            question:quest,
+            trialNum:trial,
+            response:resp,
+            time:time
+				},
+				success: function(result){
+				},
+				error: function(result){
+					window.top.location="http://interactive.ucsd.edu/michio/index.html";
+				},
+			});
+		}
+		</script>
+    </head>
+    <body>
+
+    </body>
+
+	<script>
+
+	var expArr=[];
+
+
+    //Question 1 Part A
+	var q1 = {
+		type: 'html',
+		timeline: [
+		  {type:'call-function', func: function(){setCondition(conditionOrderArray[condArrayCount])}}, 
+		  {type:'call-function', func: function(){setExperiment(fullOrder[fullArrayCount])}},
+		  {type: 'html', url: 'depth.html', on_finish: incCounts },
+		  {type: 'html', url: 'next.html'},
+		]
+	}
+
+	var q2 = {
+		type: 'html',
+		timeline: [
+		  {type:'call-function', func: function(){setCondition(conditionOrderArray[condArrayCount])}}, 
+		  {type:'call-function', func: function(){setExperiment(fullOrder[fullArrayCount])}},
+		  {type: 'html', url: 'depth.html', on_finish: incCounts },
+		  {type: 'html', url: 'next.html'},
+		]
+	}
+
+	var q3 = {
+		type: 'html',
+		timeline: [
+		  {type:'call-function', func: function(){setCondition(conditionOrderArray[condArrayCount])}}, 
+		  {type:'call-function', func: function(){setExperiment(fullOrder[fullArrayCount])}},
+		  {type: 'html', url: 'depth.html', on_finish: incCounts },
+		  {type: 'html', url: 'next.html'},
+		]
+	}
+
+	var q4 = {
+		type: 'html',
+		timeline: [
+		  {type:'call-function', func: function(){setCondition(conditionOrderArray[condArrayCount])}}, 
+		  {type:'call-function', func: function(){setExperiment(fullOrder[fullArrayCount])}},
+		  {type: 'html', url: 'depth.html', on_finish: incCounts },
+		  {type: 'html', url: 'next.html'},
+		]
+	}
+
+	var q5 = {
+		type: 'html',
+		timeline: [
+		  {type:'call-function', func: function(){setCondition(conditionOrderArray[condArrayCount])}}, 
+		  {type:'call-function', func: function(){setExperiment(fullOrder[fullArrayCount])}},
+		  {type: 'html', url: 'depth.html', on_finish: incCounts },
+		  {type: 'html', url: 'next.html'},
+		]
+	}
+
+	var q6 = {
+		type: 'html',
+		timeline: [
+		  {type:'call-function', func: function(){setCondition(conditionOrderArray[condArrayCount])}}, 
+		  {type:'call-function', func: function(){setExperiment(fullOrder[fullArrayCount])}},
+		  {type: 'html', url: 'depth.html', on_finish: incCounts },
+		  {type: 'html', url: 'next.html'},
+		]
+	}
+
+	expArr.push(q1, q2, q3, q4, q5, q6);
+	
+	setTimeout(function(){
+			jsPsych.init({
+			timeline: expArr,
+			//fullscreen: true,
+			});
+	},1000);
+
+    </script>
+</html>

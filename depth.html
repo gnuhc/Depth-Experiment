@@ -1,0 +1,44 @@
+
+<div id="loadAnswer">
+</div>
+
+<script>
+
+    switch (currExpNum){
+      case 1:
+        imageString = "img/q1depth.jpg";
+        break;
+      case 2:
+        imageString = "img/q1nodepth.jpg";
+        break;
+      case 3:
+        imageString = "img/q2depth.jpg";
+        break;
+      case 4:
+        imageString = "img/q2nodepth.jpg";
+        break;
+      case 5:
+        imageString = "img/q5dummy.jpg";
+        break;
+      case 6:
+        imageString = "img/q1depth.jpg";
+        break;
+      default:
+        console.log("error");
+        break;
+    }
+
+  /*if (skipAgain===true){
+	  skipAgain=false;
+	  console.log('q1Aanswers skip again : ' + skipAgain);
+    responsiveVoice.cancel();
+	  jsPsych.finishTrial();
+  }else{*/
+
+  	document.getElementById("loadAnswer").innerHTML=
+    '<div class="image-content">' +
+      '<img class="stim-image" src="' + imageString + '" onload="stimAudio();">' +
+    '</div>';
+
+	//}
+</script>

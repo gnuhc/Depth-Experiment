@@ -1,0 +1,11 @@
+<script>
+changeBackground('white');
+var clicked=false;
+</script>
+
+<div class='next-btn' style="margin: 0 auto; text-align: center;">
+<button style="text-align: center;height: 50px; width: 100px;top: 45%;position: absolute; font-size:25px;" onclick="endTrial();">Next</button>
+</div>
+<script>
+function endTrial(){if (!clicked){clicked=true;jsPsych.finishTrial();}}
+</script>
